@@ -1,0 +1,31 @@
+.TH SOURCE-SHELL
+
+.SH NAME
+source-shell - generate a shell script to source multiple shell scripts
+
+.SH SYNOPSIS
+source-shell [source_directory]
+
+.SH DESCRIPTION
+The source-shell function generates a shell script that can be used to source multiple shell scripts located in a source directory.
+
+The function takes a source directory as its argument. It creates a target file named ".shell-sources" in the user's home directory to store the generated script.
+
+The function iterates over all the files in the source directory that have the ".sh" extension. For each file, it appends a line to the target file, instructing the shell to source the corresponding file. The generated script can be used to conveniently source multiple shell scripts at once.
+
+.SH OPTIONS
+[source_directory]
+The path to the source directory containing the shell scripts to be sourced.
+
+.SH EXAMPLES
+To generate a script to source shell scripts located in the directory "mydir":
+
+source-shell mydir
+
+The generated script will be saved as ".shell-sources" in the user's home directory. The script will contain the necessary instructions to source each shell script found in "mydir".
+
+.SH SEE ALSO
+sh(1), find(1), source(1)
+
+.SH AUTHOR
+Ramo Mislimi (mislimi.ramo@gmail.com)
