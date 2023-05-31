@@ -1,0 +1,27 @@
+.TH JWTD
+
+.SH NAME
+jwtd - decode the payload of a JSON Web Token (JWT)
+
+.SH SYNOPSIS
+jwtd [jwt]
+
+.SH DESCRIPTION
+The jwtd function decodes the payload of a JSON Web Token (JWT).
+
+The function takes a JWT as its argument. It splits the JWT into parts by the "." character, then decodes the second part (the payload) from Base64url format, and finally parses it from JSON.
+
+The payload is printed to stdout. If the JWT is not valid or the payload cannot be decoded, jwtd may output an error message or invalid data.
+
+.SH EXAMPLES
+To use the jwtd function with a JWT like eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c:
+
+jwtd eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+The function will output the decoded payload of the JWT.
+
+.SH SEE ALSO
+jq(1), sh(1)
+
+.SH AUTHOR
+Ramo Mislimi (mislimi.ramo@gmail.com)

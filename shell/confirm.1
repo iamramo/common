@@ -1,0 +1,27 @@
+.TH CONFIRM
+
+.SH NAME
+confirm - confirm before proceeding with a command
+
+.SH SYNOPSIS
+confirm [command]
+
+.SH DESCRIPTION
+The confirm function asks for user confirmation before proceeding with a given command.
+
+The user is prompted with the question "Are you sure you want to proceed? (y/n)". If the user responds with "y", "Y", "yes" or "YES", the command will be executed. For any other response, the command is aborted and the message "Aborted." is displayed.
+
+The commands to be confirmed can be any valid commands that could be run in the current shell.
+
+.SH EXAMPLES
+To use the confirm function with a command like rm:
+
+confirm rm myfile.txt
+
+The user will be asked "Are you sure you want to proceed? (y/n)". If the user types "y" or "yes", the command 'rm myfile.txt' will be executed. For any other response, the command is aborted.
+
+.SH SEE ALSO
+bash(1), sh(1)
+
+.SH AUTHOR
+Ramo Mislimi (mislimi.ramo@gmail.com)

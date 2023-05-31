@@ -1,0 +1,25 @@
+.TH BASE64D
+
+.SH NAME
+base64d - decode a Base64-encoded string
+
+.SH SYNOPSIS
+base64d [string]
+
+.SH DESCRIPTION
+The base64d function decodes a Base64-encoded string.
+
+The function takes a Base64-encoded string as its argument and outputs the decoded form of the string to stdout. The function uses the 'base64' utility with the '--decode' flag to perform the decoding.
+
+.SH EXAMPLES
+To use the base64d function to decode a Base64-encoded string like "aGVsbG8=":
+
+base64d aGVsbG8=
+
+The function will output the decoded form of "aGVsbG8=", which is "hello".
+
+.SH SEE ALSO
+base64(1), sh(1)
+
+.SH AUTHOR
+Ramo Mislimi (mislimi.ramo@gmail.com)

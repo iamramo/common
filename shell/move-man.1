@@ -1,0 +1,27 @@
+.TH MOVE-MAN
+
+.SH NAME
+move-man - move man pages to the appropriate directory
+
+.SH SYNOPSIS
+move-man [source_directory]
+
+.SH DESCRIPTION
+The move-man function moves manual pages from a source directory to their appropriate directories under /usr/local/share/man.
+
+The function takes a source directory as its argument. It iterates over all the files in the source directory that end with a dot followed by a number (denoting the man section number). Each file is then copied to the appropriate man section directory under /usr/local/share/man. This operation requires sudo privileges.
+
+The destination directory for manual pages is hard-coded to /usr/local/share/man.
+
+.SH EXAMPLES
+To use the move-man function with a directory like mydir:
+
+move-man mydir
+
+The function will iterate over all files in 'mydir' that end with .1, .2, etc. Each file is copied to the appropriate directory under /usr/local/share/man.
+
+.SH SEE ALSO
+cp(1), sudo(8), awk(1), basename(1)
+
+.SH AUTHOR
+Ramo Mislimi (mislimi.ramo@gmail.com)
