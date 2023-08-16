@@ -1,0 +1,25 @@
+.TH JQ-COMPARE
+
+.SH NAME
+jq-compare - compare two JSON files using jq to sort keys and then diff.
+
+.SH SYNOPSIS
+jq-compare [file1] [file2]
+
+.SH DESCRIPTION
+The jq-compare function is used to compare two JSON files after sorting their keys with jq. This is particularly useful to see if two JSON files are functionally equivalent regardless of the order of their keys.
+
+The function takes two arguments which are paths to the JSON files to be compared. It then uses jq to sort the keys in both files and pipes the sorted JSON to diff. If there are differences between the two sorted JSON files, they will be output by the diff command.
+
+.SH USAGE
+To compare two JSON files, file1.json and file2.json:
+
+jq-compare file1.json file2.json
+
+If the two JSON files are equivalent (after sorting keys), there will be no output. If there are differences, they will be displayed line by line in the diff format.
+
+.SH SEE ALSO
+jq(1), diff(1), sh(1)
+
+.SH AUTHOR
+(Your name here and optionally, your contact email)
