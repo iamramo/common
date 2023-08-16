@@ -20,3 +20,14 @@ load './jq-compare.sh'
 
   [ "$status" -ne 0 ]
 }
+
+@test "jq-compare with additional diff options" {
+  echo '{"name": "John", "age": 30}' > /tmp/file5.json
+  echo '{"name": "Doe", "age": 30}' > /tmp/file6.json
+
+  # Use --brief option of diff to show only when files differ
+  run jq-compare /tmp/file5.json /tmp/file6.json --brief
+
+  [ "$status" -ne 0 ]
+  [ "$output" == "Files /dev/fd/63 and /dev/fd/62 differ" ]
+}
