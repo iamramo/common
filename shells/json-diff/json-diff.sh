@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-function jq-compare() {
+function json-diff() {
   local file1="$1"
   local file2="$2"
   shift 2

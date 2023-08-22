@@ -1,0 +1,45 @@
+.TH WHAT-IS-MY-IP 1
+.SH NAME
+what-is-my-ip - fetch and display the IP information of the executing machine using ipinfo.io.
+
+.SH SYNOPSIS
+.B what-is-my-ip
+.IR [--json]
+
+.SH DESCRIPTION
+The
+.B what-is-my-ip
+function is used to retrieve and display the public IP information of the machine where it's executed. The details are fetched from ipinfo.io in JSON format and parsed using jq.
+
+By default, the function displays:
+.IP •
+IP Address
+.IP •
+Hostname
+.IP •
+City
+.IP •
+Region
+.IP •
+Country
+.IP •
+Location (latitude and longitude)
+.IP •
+Internet Service Provider (ISP)
+
+.SH OPTIONS
+.B --json
+When provided, the raw JSON data from ipinfo.io is printed instead of the formatted output.
+
+.SH USAGE
+To retrieve and display the IP information in formatted text:
+.B what-is-my-ip
+
+To retrieve and display the IP information in JSON format:
+.B what-is-my-ip --json
+
+.SH SEE ALSO
+curl(1), jq(1), sh(1)
+
+.SH AUTHOR
+(Your name here and optionally, your contact email)

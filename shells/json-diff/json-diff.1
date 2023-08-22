@@ -1,14 +1,14 @@
-.TH JQ-COMPARE 1
+.TH JSON-DIFF 1
 .SH NAME
-jq-compare - compare two JSON files using jq to sort keys and then diff.
+json-diff - compare two JSON files using jq to sort keys and then diff.
 
 .SH SYNOPSIS
-.B jq-compare
+.B json-diff
 .IR FILE1 FILE2 [DIFF-OPTIONS...]
 
 .SH DESCRIPTION
 The
-.B jq-compare
+.B json-diff
 function is used to compare two JSON files after sorting their keys with jq. This is particularly useful to see if two JSON files are functionally equivalent regardless of the order of their keys.
 
 The function takes two mandatory arguments which are paths to the JSON files to be compared, followed by optional arguments to pass to the
@@ -28,7 +28,7 @@ and
 .I file2.json
 :
 
-.B jq-compare file1.json file2.json
+.B json-diff file1.json file2.json
 
 If the two JSON files are equivalent (after sorting keys), there will be no output. If there are differences, they will be displayed line by line in the diff format.
 
@@ -36,7 +36,7 @@ To pass options to the
 .B diff
 command, simply include them after the file names:
 
-.B jq-compare file1.json file2.json --brief
+.B json-diff file1.json file2.json --brief
 
 This would use the `--brief` option of the
 .B diff
