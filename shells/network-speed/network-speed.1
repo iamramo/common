@@ -1,0 +1,38 @@
+.TH NETWORK-SPEED 1
+.SH NAME
+network-speed \- Measure the network speed using speedtest-cli.
+
+.SH SYNOPSIS
+.B network-speed
+.br
+
+.SH DESCRIPTION
+The
+.B network-speed
+function is designed to test the speed of the network you are currently connected to. It utilizes the
+.B speedtest-cli
+utility to perform the test and will display metrics including ping, download speed, and upload speed.
+
+By default, the function will:
+.IP \[bu] 2
+Run a full speed test, including a ping to the nearest server, followed by a download and upload speed test.
+
+.SH OPTIONS
+No options are available for this function; it directly invokes speedtest-cli with default parameters.
+
+.SH DEPENDENCIES
+.IP \[bu] 2
+The function relies on the
+.B speedtest-cli
+utility. Make sure it is installed and in the system's PATH.
+
+.SH USAGE
+To measure network speed:
+.B network-speed
+.br
+
+.SH SEE ALSO
+speedtest-cli(1), curl(1), ping(1)
+
+.SH AUTHOR
+Ramo Mislimi (mislimi.ramo@gmail.com)
