@@ -1,0 +1,35 @@
+.TH CLEANDIR 1
+.SH NAME
+cleandir - find and remove files with a given name pattern in the current directory and its subdirectories.
+
+.SH SYNOPSIS
+.B cleandir
+.IR "[filename]"
+
+.SH DESCRIPTION
+The
+.B cleandir
+function is designed to search for files with a given name pattern in the current directory and all its subdirectories. When files are found, they are removed, and a message is printed to the console indicating each file that is being deleted.
+
+By default, the function displays:
+.IP •
+A message for each file being removed, showing its full path.
+
+.SH OPTIONS
+No options are available for this function; it directly accepts a filename pattern.
+
+.SH USAGE
+To find and remove all `.DS_Store` files:
+.B cleandir ".DS_Store"
+
+To find and remove all `.txt` files:
+.B cleandir "*.txt"
+
+To find and remove all `.log` files:
+.B cleandir "*.log"
+
+.SH SEE ALSO
+find(1), rm(1), printf(1), sh(1)
+
+.SH AUTHOR
+Ramo Mislimi (mislimi.ramo@gmail.com)
