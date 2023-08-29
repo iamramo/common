@@ -1,5 +1,5 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
-function base64d() {
-  echo $(echo -n "$1" | base64 --decode)
+base64d() {
+  "$(echo -n "$1" | base64 --decode)"
 }

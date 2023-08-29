@@ -1,5 +1,5 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
-function base64e() {
+base64e() {
   echo -n "$1" | base64
 }

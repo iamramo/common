@@ -1,6 +1,6 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
-function move-man() {
+move-man() {
   src_dir="$1"
   dest_dir="/usr/local/share/man"
 

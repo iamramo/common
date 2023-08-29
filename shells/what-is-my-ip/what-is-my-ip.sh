@@ -1,6 +1,6 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
-function what-is-my-ip() {
+what-is-my-ip() {
   data=$(curl -s https://ipinfo.io/json)
 
   if [ "$1" = "--json" ]; then

@@ -1,8 +1,8 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
-function confirm() {
+confirm() {
   echo "Are you sure you want to proceed? (y/n)"
-  read response
+  read -r response
 
   if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
     "$@"

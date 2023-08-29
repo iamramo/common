@@ -1,6 +1,6 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
-function cleandir() {
+cleandir() {
   if [[ -z "$1" ]]; then
     echo "Usage: cleandir <filename>"
     return 1

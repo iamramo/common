@@ -1,6 +1,6 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
-function source-shell() {
+source-shell() {
   src_dir="$1"
   target_file="$HOME/.shell-sources"
 

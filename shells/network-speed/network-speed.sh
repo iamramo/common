@@ -1,5 +1,5 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
-function network-speed() {
+network-speed() {
   speedtest-cli
 }
