@@ -1,6 +1,8 @@
 ---
+name: commit-message
 description: Stages and commits changes with an appropriate commit message
-mode: all
+mode: subagent
+model: github-copilot/claude-haiku-4.5
 ---
 
 Always ask for approval before staging or committing anything.
