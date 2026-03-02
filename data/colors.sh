@@ -1,10 +1,9 @@
 #!/bin/bash
-# shellcheck disable=SC2034
 
-RED='\033[31m'
-GREEN='\033[32m'
-YELLOW='\033[33m'
-BLUE='\033[34m'
-MAGENTA='\033[35m'
-CYAN='\033[36m'
-RESET='\033[0m'
+declare -rx RED='\033[31m'
+declare -rx GREEN='\033[32m'
+declare -rx YELLOW='\033[33m'
+declare -rx BLUE='\033[34m'
+declare -rx MAGENTA='\033[35m'
+declare -rx CYAN='\033[36m'
+declare -rx RESET='\033[0m'

@@ -1,0 +1,29 @@
+# General
+theme = GitHub Dark High Contrast
+window-inherit-working-directory = false
+window-new-tab-position = end
+maximize = true
+font-size = 14
+cursor-style = bar
+macos-icon = retro
+macos-titlebar-style = tabs
+macos-non-native-fullscreen = padded-notch
+macos-window-buttons = hidden
+confirm-close-surface = false
+
+# Move tab navigation
+keybind = super+shift+right=move_tab:1
+keybind = super+shift+left=move_tab:-1
+
+# Focus tab navigation
+keybind = super+alt+right=next_tab
+keybind = super+alt+left=previous_tab
+
+# Open terminal content in editor
+keybind = super+f=write_screen_file:open
+
+# Open inspector
+keybind = super+shift+c=inspector:toggle
+
+# Change title
+keybind = super+shift+t=prompt_surface_title
