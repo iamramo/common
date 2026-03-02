@@ -1,12 +1,13 @@
 #!/bin/bash
 
 source-shell() {
-  src_dir="$1"
-  target_file="$HOME/.shell-sources"
+  local target_file="$HOME/.shell-sources"
 
-  echo -n > $target_file
+  echo -n > "$target_file"
 
-  find "$src_dir" -type f -name "*.sh" -print | sort | while read -r file; do
-    echo "source $file" >> $target_file
+  for src_dir in "$@"; do
+    find "$src_dir" -type f -name "*.sh" -print | sort | while read -r file; do
+      echo "source $file" >> "$target_file"
+    done
   done
 }
