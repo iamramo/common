@@ -6,7 +6,7 @@ source-shell() {
 
   echo -n > $target_file
 
-  find "$src_dir" -type f -name "*.sh" -print | while read -r file; do
+  find "$src_dir" -type f -name "*.sh" -print | sort | while read -r file; do
     echo "source $file" >> $target_file
   done
 }

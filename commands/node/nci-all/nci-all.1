@@ -1,0 +1,46 @@
+.TH NCI-ALL 1
+.SH NAME
+nci-all \- run npm ci in parallel across all package directories, then build selected packages.
+
+.SH SYNOPSIS
+.B nci-all
+
+.SH DESCRIPTION
+The
+.B nci-all
+function discovers all
+.B package.json
+directories up to 2 levels deep (via
+.BR find-package-dirs (1))
+and runs
+.B npm ci --legacy-peer-deps
+in each of them concurrently. Once all installs complete, it sequentially builds a predefined set of packages (currently
+.B common
+and
+.BR mv-agent )
+by running
+.B npm run build
+in those directories.
+
+Progress and success/failure status is printed to the console for each package.
+
+.SH OPTIONS
+No options. The function takes no arguments.
+
+.SH DEPENDENCIES
+.IP \[bu] 2
+.BR find-package-dirs (1)
+\- must be sourced before this function.
+.IP \[bu] 2
+.B npm
+\- must be installed and in the system's PATH.
+
+.SH USAGE
+From the root of a monorepo or workspace:
+.B nci-all
+
+.SH SEE ALSO
+find-package-dirs(1), npm(1)
+
+.SH AUTHOR
+Ramo Mislimi (mislimi.ramo@gmail.com)

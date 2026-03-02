@@ -1,0 +1,29 @@
+.TH GENUUID 1
+.SH NAME
+genuuid \- generate a random lowercase UUID.
+
+.SH SYNOPSIS
+.B genuuid
+
+.SH DESCRIPTION
+The
+.B genuuid
+function generates a random UUID (version 4) using
+.BR uuidgen (1)
+and converts it to lowercase.
+
+.SH USAGE
+.B genuuid
+.br
+Example output: f47ac10b-58cc-4372-a567-0e02b2c3d479
+
+.SH DEPENDENCIES
+.IP \[bu] 2
+.B uuidgen
+\- available by default on macOS.
+
+.SH SEE ALSO
+uuidgen(1)
+
+.SH AUTHOR
+Ramo Mislimi (mislimi.ramo@gmail.com)

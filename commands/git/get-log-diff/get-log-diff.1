@@ -1,0 +1,32 @@
+.TH GET-LOG-DIFF 1
+.SH NAME
+get-log-diff \- show a one-line git log between two refs, fetching branches as needed.
+
+.SH SYNOPSIS
+.B get-log-diff
+.IR "<from>"
+.IR "<to>"
+
+.SH DESCRIPTION
+The
+.B get-log-diff
+function prints a condensed one-line git log of all commits reachable from
+.I <to>
+but not from
+.IR <from> .
+If either ref looks like a branch name (not a hex commit hash), it is fetched from
+.B origin
+before the log is produced.
+
+.SH USAGE
+Compare two branches:
+.B get-log-diff main feature/my-branch
+
+Compare a branch to a commit hash:
+.B get-log-diff abc1234 main
+
+.SH SEE ALSO
+git-log(1), git-fetch(1)
+
+.SH AUTHOR
+Ramo Mislimi (mislimi.ramo@gmail.com)

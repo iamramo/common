@@ -1,0 +1,40 @@
+.TH GENPASS 1
+.SH NAME
+genpass \- generate a random password.
+
+.SH SYNOPSIS
+.B genpass
+.IR "[length]"
+
+.SH DESCRIPTION
+The
+.B genpass
+function generates a cryptographically random password using
+.BR openssl-rand (1).
+The character set includes uppercase and lowercase letters, digits, and special
+characters
+.RB ( !@#$%^&* ).
+Defaults to 16 characters if no length is specified.
+
+.SH OPTIONS
+.TP
+.I length
+Optional. The number of characters in the generated password. Defaults to 16.
+
+.SH USAGE
+Generate a 16-character password:
+.B genpass
+
+Generate a 32-character password:
+.B genpass 32
+
+.SH DEPENDENCIES
+.IP \[bu] 2
+.B openssl
+\- must be installed and in the system's PATH.
+
+.SH SEE ALSO
+openssl-rand(1)
+
+.SH AUTHOR
+Ramo Mislimi (mislimi.ramo@gmail.com)

@@ -1,0 +1,42 @@
+.TH CERT-INFO 1
+.SH NAME
+cert-info \- display TLS certificate details for a remote host.
+
+.SH SYNOPSIS
+.B cert-info
+.IR "<host>"
+.IR "[port]"
+
+.SH DESCRIPTION
+The
+.B cert-info
+function connects to a remote host using
+.BR openssl-s_client (1)
+and prints the certificate's subject, issuer, and validity dates (not before / not after).
+Defaults to port 443 if no port is specified.
+
+.SH OPTIONS
+.TP
+.I host
+The hostname or IP address to connect to.
+.TP
+.I port
+Optional. The port to connect to. Defaults to 443.
+
+.SH USAGE
+Check the certificate for a website:
+.B cert-info google.com
+
+Check a certificate on a custom port:
+.B cert-info myhost.com 8443
+
+.SH DEPENDENCIES
+.IP \[bu] 2
+.B openssl
+\- must be installed and in the system's PATH.
+
+.SH SEE ALSO
+openssl-s_client(1), openssl-x509(1)
+
+.SH AUTHOR
+Ramo Mislimi (mislimi.ramo@gmail.com)

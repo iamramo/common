@@ -1,0 +1,28 @@
+.TH FIND-PACKAGE-DIRS 1
+.SH NAME
+find-package-dirs \- find directories containing a package.json up to 2 levels deep.
+
+.SH SYNOPSIS
+.B find-package-dirs
+
+.SH DESCRIPTION
+The
+.B find-package-dirs
+function searches the current directory and up to 2 levels of subdirectories for
+.B package.json
+files and prints the unique parent directories, sorted alphabetically.
+
+Useful for monorepos or workspaces where you need to enumerate all packages.
+
+.SH OPTIONS
+No options. The function takes no arguments.
+
+.SH USAGE
+To list all package directories from the current working directory:
+.B find-package-dirs
+
+.SH SEE ALSO
+find(1), dirname(1), sort(1)
+
+.SH AUTHOR
+Ramo Mislimi (mislimi.ramo@gmail.com)

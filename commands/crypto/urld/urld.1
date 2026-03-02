@@ -1,0 +1,29 @@
+.TH URLD 1
+.SH NAME
+urld \- decode a percent-encoded URL string.
+
+.SH SYNOPSIS
+.B urld
+.IR "<string>"
+
+.SH DESCRIPTION
+The
+.B urld
+function decodes a percent-encoded URL string using Python's
+.BR urllib.parse.unquote .
+
+.SH USAGE
+.B urld "hello%20world%20%26%20more"
+.br
+Example output: hello world & more
+
+.SH DEPENDENCIES
+.IP \[bu] 2
+.B python3
+\- must be installed and in the system's PATH.
+
+.SH SEE ALSO
+urle(1), python3(1)
+
+.SH AUTHOR
+Ramo Mislimi (mislimi.ramo@gmail.com)

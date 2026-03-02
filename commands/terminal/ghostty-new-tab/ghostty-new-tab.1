@@ -1,0 +1,42 @@
+.TH GHOSTTY-NEW-TAB 1
+.SH NAME
+ghostty-new-tab \- open a new Ghostty terminal tab and run a command in it.
+
+.SH SYNOPSIS
+.B ghostty-new-tab
+.IR "[command ...]"
+
+.SH DESCRIPTION
+The
+.B ghostty-new-tab
+function uses AppleScript to bring the
+.B Ghostty
+terminal application to the foreground, open a new tab with
+.BR Cmd+T ,
+and type the given command followed by Return.
+
+.SH OPTIONS
+No flags. All arguments are treated as the command string to execute in the new tab.
+
+.SH USAGE
+Open a new tab and run a server:
+.B ghostty-new-tab npm run dev
+
+Open a new tab with no initial command:
+.B ghostty-new-tab
+
+.SH DEPENDENCIES
+.IP \[bu] 2
+.B Ghostty
+terminal emulator must be running.
+.IP \[bu] 2
+.B osascript
+(macOS only) \- this function is macOS-specific and will not work on other platforms.
+.IP \[bu] 2
+Accessibility permissions must be granted to the terminal running this function under System Settings > Privacy & Security > Accessibility.
+
+.SH SEE ALSO
+osascript(1)
+
+.SH AUTHOR
+Ramo Mislimi (mislimi.ramo@gmail.com)
