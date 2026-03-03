@@ -1,8 +1,8 @@
 #!/bin/bash
 
 nci-all() {
-  BOLD="\033[1m"
-  RESET="\033[0m"
+  local BOLD="\033[1m"
+  local RESET="\033[0m"
 
   local dirs=($(find-package-dirs))
   local ci_pids=()

@@ -4,15 +4,7 @@
   "permission": {
     "read": "allow",
     "edit": "ask",
-    "bash": "ask",
-    "cat": "allow",
-    "ls": "allow",
-    "find": "allow",
-    "sort": "allow",
-    "grep": "allow",
-    "echo": "allow",
-    "glob": "allow",
-    "list": "allow",
+    "bash": "allow",
     "webfetch": "allow",
     "websearch": "ask",
     "todowrite": "allow",
@@ -27,6 +19,52 @@
     "playwright": {
       "type": "local",
       "command": ["npx", "@playwright/mcp@latest"],
+      "enabled": false
+    },
+    "portainer": {
+      "type": "local",
+      "command": [
+        "/usr/local/bin/portainer-mcp",
+        "-server",
+        "portainer.arpa",
+        "-token",
+        "{env:PORTAINER_TOKEN}",
+        "-disable-version-check"
+      ],
+      "enabled": false
+    },
+    "azure": {
+      "type": "local",
+      "command": ["npx", "-y", "@azure/mcp@latest", "server", "start"],
+      "enabled": false
+    },
+    "filesystem": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/ramo"
+      ],
+      "enabled": false
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": false
+    },
+    "gh_grep": {
+      "type": "remote",
+      "url": "https://mcp.grep.app",
+      "enabled": false
+    },
+    "affine_workspace": {
+      "type": "remote",
+      "url": "https://affine.arpa/api/workspaces/c4f634bd-c220-4bfb-807f-3b59a9424317/mcp",
+      "headers": {
+        "Authorization": "Bearer {env:AFFINE_WORKSPACE_AUTH_TOKEN}"
+      },
+      "oauth": false,
       "enabled": false
     }
   },

@@ -1,5 +1,4 @@
 ---
-name: commit-message
 description: Stages and commits changes with an appropriate commit message
 mode: subagent
 model: github-copilot/claude-haiku-4.5
