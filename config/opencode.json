@@ -69,6 +69,27 @@
     }
   },
   "provider": {
+    "the-llm-server": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "The LLM Server",
+      "options": {
+        "baseURL": "http://the-llm-server.arpa/v1"
+      },
+      "models": {
+        "qwen3:30b-a3b": {
+          "name": "QWEN3 30b-a3b",
+          "options": {
+            "stream": false
+          }
+        },
+        "qwen3.5:35b": {
+          "name": "QWEN3.5 35b",
+          "options": {
+            "stream": false
+          }
+        }
+      }
+    },
     "litellm": {
       "npm": "@ai-sdk/openai",
       "name": "LiteLLM",
