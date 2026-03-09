@@ -1,0 +1,20 @@
+services:
+  zerobyte:
+    image: ghcr.io/nicotsx/zerobyte:latest
+    container_name: zerobyte
+    restart: unless-stopped
+    networks: [proxy]
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/docker/zerobyte:/var/lib/zerobyte
+      - /opt/docker:/data/docker:ro
+      - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
+    environment:
+      - TZ=Europe/Stockholm
+      - BASE_URL=https://zerobyte.arpa
+      - APP_SECRET=${APP_SECRET}
+      - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+
+networks:
+  proxy:
+    external: true

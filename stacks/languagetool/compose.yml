@@ -1,0 +1,16 @@
+services:
+  languagetool:
+    image: erikvl87/languagetool
+    container_name: languagetool
+    restart: unless-stopped
+    networks: [proxy]
+    environment:
+      - langtool_languageModel=/ngrams
+      - Java_Xms=512m
+      - Java_Xmx=1g
+    volumes:
+      - /opt/docker/languagetool/ngrams/data:/ngrams
+
+networks:
+  proxy:
+    external: true

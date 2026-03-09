@@ -50,21 +50,26 @@
     },
     "context7": {
       "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
+      "url": "https://litellm.arpa/mcp/context7",
+      "headers": {
+        "x-litellm-api-key": "Bearer {env:LITELLM_API_KEY}"
+      },
       "enabled": false
     },
     "gh_grep": {
       "type": "remote",
-      "url": "https://mcp.grep.app",
+      "url": "https://litellm.arpa/mcp/gh_grep",
+      "headers": {
+        "x-litellm-api-key": "Bearer {env:LITELLM_API_KEY}"
+      },
       "enabled": false
     },
     "affine_workspace": {
       "type": "remote",
-      "url": "https://affine.arpa/api/workspaces/c4f634bd-c220-4bfb-807f-3b59a9424317/mcp",
+      "url": "https://litellm.arpa/mcp/affine_workspace",
       "headers": {
-        "Authorization": "Bearer {env:AFFINE_WORKSPACE_AUTH_TOKEN}"
+        "x-litellm-api-key": "Bearer {env:LITELLM_API_KEY}"
       },
-      "oauth": false,
       "enabled": false
     }
   },
@@ -76,14 +81,8 @@
         "baseURL": "http://the-llm-server.arpa/v1"
       },
       "models": {
-        "qwen3:30b-a3b": {
-          "name": "QWEN3 30b-a3b",
-          "options": {
-            "stream": false
-          }
-        },
         "qwen3.5:35b": {
-          "name": "QWEN3.5 35b",
+          "name": "QWEN 3.5 (35b)",
           "options": {
             "stream": false
           }

@@ -1,0 +1,83 @@
+services:
+  immich:
+    image: ghcr.io/immich-app/immich-server:release
+    container_name: immich
+    restart: unless-stopped
+    networks: [proxy]
+    depends_on:
+      - immich-redis
+      - immich-postgres
+    volumes:
+      - /opt/docker/immich/library:/usr/src/app/upload
+      - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
+    environment:
+      - TZ=Europe/Stockholm
+      - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+
+      - DB_HOSTNAME=immich-postgres
+      - DB_PORT=5432
+      - DB_USERNAME=immich
+      - DB_PASSWORD=${POSTGRES_PASSWORD}
+      - DB_DATABASE_NAME=immich
+
+      - REDIS_HOSTNAME=immich-redis
+
+  immich-microservices:
+    image: ghcr.io/immich-app/immich-server:release
+    container_name: immich-microservices
+    restart: unless-stopped
+    networks: [proxy]
+    depends_on:
+      - immich-redis
+      - immich-postgres
+    command: ["start.sh", "microservices"]
+    volumes:
+      - /opt/docker/immich/library:/usr/src/app/upload
+      - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
+    environment:
+      - TZ=Europe/Stockholm
+      - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+
+      - DB_HOSTNAME=immich-postgres
+      - DB_PORT=5432
+      - DB_USERNAME=immich
+      - DB_PASSWORD=${POSTGRES_PASSWORD}
+      - DB_DATABASE_NAME=immich
+
+      - REDIS_HOSTNAME=immich-redis
+
+  immich-machine-learning:
+    image: ghcr.io/immich-app/immich-machine-learning:release
+    container_name: immich-machine-learning
+    restart: unless-stopped
+    networks: [proxy]
+    volumes:
+      - /opt/docker/immich/ml-cache:/cache
+      - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
+    environment:
+      - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+
+  immich-redis:
+    image: redis:7-alpine
+    container_name: immich-redis
+    restart: unless-stopped
+    networks: [proxy]
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - /opt/docker/immich/redis:/data
+
+  immich-postgres:
+    image: ghcr.io/tensorchord/pgvecto-rs:pg14-v0.3.0
+    container_name: immich-postgres
+    restart: unless-stopped
+    networks: [proxy]
+    environment:
+      - POSTGRES_USER=immich
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=immich
+    volumes:
+      - /opt/docker/immich/postgres:/var/lib/postgresql/data
+
+networks:
+  proxy:
+    external: true

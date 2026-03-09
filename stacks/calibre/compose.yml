@@ -1,0 +1,18 @@
+services:
+  calibre:
+    image: lscr.io/linuxserver/calibre:latest
+    container_name: calibre
+    restart: unless-stopped
+    networks: [proxy]
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+      - CLI_ARGS=
+    volumes:
+      - /opt/docker/calibre/config:/config
+      - /opt/docker/calibre/library:/books
+
+networks:
+  proxy:
+    external: true

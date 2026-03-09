@@ -1,0 +1,32 @@
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    restart: unless-stopped
+    networks: [proxy]
+    volumes:
+      - /opt/docker/open-webui:/app/backend/data
+      - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
+    environment:
+      - SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+      - REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+      - CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+      - CORS_ALLOW_ORIGIN=https://open-webui.arpa
+
+      - WEBUI_AUTH_SIGNOUT_REDIRECT_URL=https://open-webui.arpa/auth
+      - WEBUI_URL=https://open-webui.arpa
+      - WEBUI_SECRET_KEY=${WEBUI_SECRET_KEY}
+
+      - OAUTH_CLIENT_ID=H8QF1yk1pqqcJ0LHscLzxaI2iKgN0TRlo3x6PK4W
+      - OAUTH_CLIENT_SECRET=${OIDC_CLIENT_SECRET}
+      - OAUTH_PROVIDER_NAME=authentik
+      - OPENID_PROVIDER_URL=https://authentik.arpa/application/o/open-web-ui/.well-known/openid-configuration
+      - ENABLE_OAUTH_SIGNUP=false
+      - ENABLE_LOGIN_FORM=false
+      - OAUTH_UPDATE_PICTURE_ON_LOGIN=true
+      - OAUTH_MERGE_ACCOUNTS_BY_EMAIL=true
+      - ENABLE_OAUTH_TOKEN_EXCHANGE=true
+
+networks:
+  proxy:
+    external: true

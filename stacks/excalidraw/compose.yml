@@ -1,0 +1,10 @@
+services:
+  excalidraw:
+    image: excalidraw/excalidraw:latest
+    container_name: excalidraw
+    restart: unless-stopped
+    networks: [proxy]
+
+networks:
+  proxy:
+    external: true
