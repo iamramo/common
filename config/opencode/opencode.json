@@ -5,10 +5,12 @@
     "read": "allow",
     "edit": "ask",
     "bash": "allow",
-    "webfetch": "allow",
+    "webfetch": "deny",
     "websearch": "ask",
     "todowrite": "allow",
-    "todoread": "allow"
+    "todoread": "allow",
+    "external_directory": "ask",
+    "codesearch": "ask"
   },
   "mcp": {
     "skapa-design-system": {
@@ -71,6 +73,14 @@
         "x-litellm-api-key": "Bearer {env:LITELLM_API_KEY}"
       },
       "enabled": false
+    },
+    "searxng": {
+      "type": "local",
+      "command": ["npx", "-y", "mcp-searxng"],
+      "environment": {
+        "SEARXNG_URL": "https://searxng.arpa"
+      },
+      "enabled": false
     }
   },
   "provider": {
@@ -81,11 +91,34 @@
         "baseURL": "http://the-llm-server.arpa/v1"
       },
       "models": {
-        "qwen3.5:35b": {
-          "name": "QWEN 3.5 (35b)",
-          "options": {
-            "stream": false
+        "Qwen3.5-27B": {
+          "name": "Qwen3.5-27B-Q8_0",
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
           }
+        },
+        "Qwen3.5-35B-A3B": {
+          "name": "Qwen3.5-35B-A3B-Q6_K",
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        }
+      }
+    },
+    "litellm-compatible": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LiteLLM (compatible)",
+      "options": {
+        "baseURL": "https://litellm.arpa/v1"
+      },
+      "models": {
+        "claude-sonnet-4-6": {
+          "name": "Claude Sonnet 4.6"
+        },
+        "claude-haiku-4-5": {
+          "name": "Claude Haiku 4.5"
         }
       }
     },
@@ -98,12 +131,6 @@
       "models": {
         "gpt-5-mini": {
           "name": "GPT 5 mini"
-        },
-        "claude-sonnet-4-6": {
-          "name": "Claude Sonnet 4.6"
-        },
-        "claude-haiku-4-5": {
-          "name": "Claude Haiku 4.5"
         },
         "xai/grok-4": {
           "name": "Grok 4"
