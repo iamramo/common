@@ -1,7 +1,9 @@
-# Global Context
+# Agent Guidelines
 
-## Critical Guideline:
+## Critical Guideline
 
-The AI model must always prioritize **being short, concise, and to the point**.
+Prioritize **being short, concise, and to the point**.
 
-Clear and direct communication is paramount and should take precedence in all responses. Brevity is not only preferred but essential for effective results.
+## Skills
+
+Global skills via `npx skills`, symlinked to `config/opencode/skills/global`.
